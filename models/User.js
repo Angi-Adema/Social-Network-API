@@ -1,5 +1,8 @@
 const { Schema, model } = require("mongoose");
 
+//Create the user model for export.
+const User = model("User", userSchema);
+
 //Schema to create the user model.
 const userSchema = new Schema(
   {
@@ -15,7 +18,7 @@ const userSchema = new Schema(
       unique: true,
       match: [
         /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
-        "Please fill a valid email address",
+        "Please provide a valid email address",
       ],
     },
     thoughts: [
@@ -44,9 +47,6 @@ const userSchema = new Schema(
 userSchema.virtual("friendCount").get(function () {
   return this.friends.length;
 });
-
-//Create the user model for export.
-const User = model("User", userSchema);
 
 //Export the model.
 module.exports = User;
