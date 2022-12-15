@@ -1,8 +1,8 @@
-const { Schema, Types, model } = require('mongoose');
-const moment = require('moment');
+const { Schema, Types, model } = require("mongoose");
+const moment = require("moment");
 
 //Create the thought model for export.
-const Thought = model('Thought', thoughtSchema);
+const Thought = model("Thought", thoughtSchema);
 
 //Thought schema.
 const thoughtSchema = new Schema(
@@ -17,7 +17,7 @@ const thoughtSchema = new Schema(
       type: Date,
       default: Date.now,
       get: (createdAtDate) =>
-        moment(createdAtDate).format('MMM DD, YYYY [at] hh:mm a'),
+        moment(createdAtDate).format("MMM DD, YYYY [at] hh:mm a"),
     },
     username: {
       type: String,
@@ -55,7 +55,7 @@ const reactionSchema = new Schema(
       type: Date,
       default: Date.now,
       get: (createdAtDate) =>
-        moment(createdAtDate).format('MMM DD, YYYY [at] hh:mm a'),
+        moment(createdAtDate).format("MMM DD, YYYY [at] hh:mm a"),
     },
   },
   {
@@ -66,8 +66,8 @@ const reactionSchema = new Schema(
 );
 
 //Virtual to retrieve the total count of the reactions.
-thoughtSchema.virtual('reactionCount').get(function () {
-    return this.reactions.length;
+thoughtSchema.virtual("reactionCount").get(function () {
+  return this.reactions.length;
 });
 
 //Export Thought module.
