@@ -1,6 +1,5 @@
 //Require the express, mongoose and connection packages.
 const express = require("express");
-// const mongoose = require('mongoose');
 const db = require("./config/connection");
 const routes = require("./routes");
 
@@ -10,8 +9,6 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(routes);
-
-// mongoose.connect('mongodb://localhost:27017/social-network-api');
 
 db.once("open", () => {
   app.listen(PORT, () => {
