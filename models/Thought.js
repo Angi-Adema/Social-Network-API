@@ -1,6 +1,6 @@
-const { Schema, Types, model } = require("mongoose");
+const { Schema, model } = require("mongoose");
 const moment = require("moment");
-const reactionSchema = require('./Reaction')
+const reactionSchema = require("./Reaction");
 
 //Thought schema.
 const thoughtSchema = new Schema(
@@ -16,8 +16,8 @@ const thoughtSchema = new Schema(
       default: Date.now,
       get: (createdAtDate) =>
         moment(createdAtDate).format("MMM DD, YYYY [at] hh:mm a"),
-      },
-      username: {
+    },
+    username: {
       type: String,
       required: true,
     },
@@ -31,7 +31,6 @@ const thoughtSchema = new Schema(
     id: false,
   }
 );
-
 
 //Virtual to retrieve the total count of the reactions.
 thoughtSchema.virtual("reactionCount").get(function () {
