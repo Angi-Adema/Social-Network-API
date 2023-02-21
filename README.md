@@ -29,3 +29,8 @@ Node.js / Express.js
 NoSQL
 MongoDB / Mongoose
 Insomnia
+
+## Run Application
+
+1. npm i
+2. npm run watch
